@@ -37,6 +37,7 @@ install -d $RPM_BUILD_ROOT%{_chromedir}
 install chrome/{AT,de-AT,de-unix}.jar $RPM_BUILD_ROOT%{_chromedir}
 install lang-de-installed-chrome.txt $RPM_BUILD_ROOT%{_chromedir}
 cp -r defaults myspell searchplugins $RPM_BUILD_ROOT%{_datadir}/seamonkey
+rm $RPM_BUILD_ROOT%{_datadir}/seamonkey/myspell/LICENSE.TXT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
