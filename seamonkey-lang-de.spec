@@ -7,7 +7,9 @@ License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/%{version}/contrib-localized/seamonkey-%{version}.de-AT.langpack.xpi
 # Source0-md5:	4a941dcf13ae315a97293da31ae9cc4e
-Source1:	gen-installed-chrome.sh
+Source1:	http://www.mozilla-enigmail.org/downloads/lang/0.9x/enigmail-de-0.9x.xpi
+# Source1-md5:	bc4a451a0b79cf330111fd4392d93fcf
+Source2:	gen-installed-chrome.sh
 URL:		http://www.mozilla.org/projects/seamonkey/
 BuildRequires:	unzip
 Requires(post,postun):	seamonkey >= %{version}
@@ -27,14 +29,16 @@ Niemieckie pliki jêzykowe dla SeaMonkeya.
 %prep
 %setup -q -c -T
 unzip %{SOURCE0}
-install %{SOURCE1} .
-./gen-installed-chrome.sh locale chrome/{AT,de-AT,de-unix}.jar > lang-de-installed-chrome.txt
+unzip -o %{SOURCE1}
+install %{SOURCE2} .
+./gen-installed-chrome.sh locale chrome/{AT,de-AT,de-unix,enigmail-DE}.jar \
+	> lang-de-installed-chrome.txt
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_chromedir}
 
-install chrome/{AT,de-AT,de-unix}.jar $RPM_BUILD_ROOT%{_chromedir}
+install chrome/{AT,de-AT,de-unix,enigmail-DE}.jar $RPM_BUILD_ROOT%{_chromedir}
 install lang-de-installed-chrome.txt $RPM_BUILD_ROOT%{_chromedir}
 cp -r defaults myspell searchplugins $RPM_BUILD_ROOT%{_datadir}/seamonkey
 rm $RPM_BUILD_ROOT%{_datadir}/seamonkey/myspell/LICENSE.TXT
@@ -50,9 +54,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%{_chromedir}/AT.jar
 %{_chromedir}/de-AT.jar
 %{_chromedir}/de-unix.jar
-%{_chromedir}/AT.jar
+%{_chromedir}/enigmail-DE.jar
 %{_chromedir}/lang-de-installed-chrome.txt
 %{_datadir}/seamonkey/searchplugins/*
 %{_datadir}/seamonkey/defaults/messenger/AT
