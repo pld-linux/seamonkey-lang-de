@@ -27,8 +27,7 @@ German resources for SeaMonkey.
 Niemieckie pliki jêzykowe dla SeaMonkeya.
 
 %prep
-%setup -q -c -T
-unzip %{SOURCE0}
+%setup -q -c
 unzip -o %{SOURCE1}
 install %{SOURCE2} .
 ./gen-installed-chrome.sh locale chrome/{AT,de-AT,de-unix,enigmail-DE}.jar \
