@@ -1,13 +1,16 @@
+%define	_lang	de
+%define	_reg	AT
+%define	_lare	%{_lang}-%{_reg}
 Summary:	German resources for SeaMonkey
 Summary(pl):	Niemieckie pliki jêzykowe dla SeaMonkeya
-Name:		seamonkey-lang-de
+Name:		seamonkey-lang-%{_lang}
 Version:	1.0.3
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
-Source0:	http://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/%{version}/contrib-localized/seamonkey-%{version}.de-AT.langpack.xpi
+Source0:	http://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/%{version}/contrib-localized/seamonkey-%{version}.%{_lare}.langpack.xpi
 # Source0-md5:	6b21f1ea8e30d9d8406d6d20b96f53b2
-Source1:	http://www.mozilla-enigmail.org/downloads/lang/0.9x/enigmail-de-0.9x.xpi
+Source1:	http://www.mozilla-enigmail.org/downloads/lang/0.9x/enigmail-%{_lang}-0.9x.xpi
 # Source1-md5:	bc4a451a0b79cf330111fd4392d93fcf
 Source2:	gen-installed-chrome.sh
 URL:		http://www.mozilla.org/projects/seamonkey/
@@ -28,17 +31,17 @@ Niemieckie pliki jêzykowe dla SeaMonkeya.
 
 %prep
 %setup -q -c
-unzip -o %{SOURCE1}
+%{__unzip} -o -qq %{SOURCE1}
 install %{SOURCE2} .
-./gen-installed-chrome.sh locale chrome/{AT,de-AT,de-unix,enigmail-DE}.jar \
-	> lang-de-installed-chrome.txt
+./gen-installed-chrome.sh locale chrome/{%{_reg},%{_lare},%{_lang}-unix,enigmail-DE}.jar \
+	> lang-%{_lang}-installed-chrome.txt
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_chromedir}
 
-install chrome/{AT,de-AT,de-unix,enigmail-DE}.jar $RPM_BUILD_ROOT%{_chromedir}
-install lang-de-installed-chrome.txt $RPM_BUILD_ROOT%{_chromedir}
+install chrome/{%{_reg},%{_lare},%{_lang}-unix,enigmail-DE}.jar $RPM_BUILD_ROOT%{_chromedir}
+install lang-%{_lang}-installed-chrome.txt $RPM_BUILD_ROOT%{_chromedir}
 cp -r defaults myspell searchplugins $RPM_BUILD_ROOT%{_datadir}/seamonkey
 rm $RPM_BUILD_ROOT%{_datadir}/seamonkey/myspell/LICENSE.TXT
 
@@ -53,12 +56,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{_chromedir}/AT.jar
-%{_chromedir}/de-AT.jar
-%{_chromedir}/de-unix.jar
+%{_chromedir}/%{_reg}.jar
+%{_chromedir}/%{_lare}.jar
+%{_chromedir}/%{_lang}-unix.jar
 %{_chromedir}/enigmail-DE.jar
-%{_chromedir}/lang-de-installed-chrome.txt
+%{_chromedir}/lang-%{_lang}-installed-chrome.txt
 %{_datadir}/seamonkey/searchplugins/*
-%{_datadir}/seamonkey/defaults/messenger/AT
-%{_datadir}/seamonkey/defaults/profile/AT
+%{_datadir}/seamonkey/defaults/messenger/%{_reg}
+%{_datadir}/seamonkey/defaults/profile/%{_reg}
 %{_datadir}/seamonkey/myspell/*
