@@ -4,12 +4,12 @@
 Summary:	German resources for SeaMonkey
 Summary(pl):	Niemieckie pliki jêzykowe dla SeaMonkeya
 Name:		seamonkey-lang-%{_lang}
-Version:	1.0.6
+Version:	1.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/%{version}/contrib-localized/seamonkey-%{version}.%{_lare}.langpack.xpi
-# Source0-md5:	dadd4076090e750be71193ac360fc40d
+# Source0-md5:	a1c9e0d13c01205ab57be0544fbf1160
 Source1:	http://www.mozilla-enigmail.org/downloads/lang/0.9x/enigmail-%{_lang}-0.9x.xpi
 # Source1-md5:	a6d521392385d55d9de6dbe093def72c
 Source2:	gen-installed-chrome.sh
@@ -42,8 +42,8 @@ install -d $RPM_BUILD_ROOT%{_chromedir}
 
 install chrome/{%{_reg},%{_lare},%{_lang}-unix,enigmail-DE}.jar $RPM_BUILD_ROOT%{_chromedir}
 install lang-%{_lang}-installed-chrome.txt $RPM_BUILD_ROOT%{_chromedir}
-cp -r defaults myspell searchplugins $RPM_BUILD_ROOT%{_datadir}/seamonkey
-rm $RPM_BUILD_ROOT%{_datadir}/seamonkey/myspell/LICENSE.TXT
+cp -r defaults dictionaries searchplugins $RPM_BUILD_ROOT%{_datadir}/seamonkey
+rm $RPM_BUILD_ROOT%{_datadir}/seamonkey/dictionaries/LICENSE.TXT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -64,4 +64,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/seamonkey/searchplugins/*
 %{_datadir}/seamonkey/defaults/messenger/%{_reg}
 %{_datadir}/seamonkey/defaults/profile/%{_reg}
-%{_datadir}/seamonkey/myspell/*
+%{_datadir}/seamonkey/dictionaries/*
