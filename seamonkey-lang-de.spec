@@ -2,7 +2,7 @@
 %define	_reg	AT
 %define	_lare	%{_lang}-%{_reg}
 Summary:	German resources for SeaMonkey
-Summary(pl):	Niemieckie pliki jêzykowe dla SeaMonkeya
+Summary(pl.UTF-8):   Niemieckie pliki jÄ™zykowe dla SeaMonkeya
 Name:		seamonkey-lang-%{_lang}
 Version:	1.1
 Release:	1
@@ -26,8 +26,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 German resources for SeaMonkey.
 
-%description -l pl
-Niemieckie pliki jêzykowe dla SeaMonkeya.
+%description -l pl.UTF-8
+Niemieckie pliki jÄ™zykowe dla SeaMonkeya.
 
 %prep
 %setup -q -c
