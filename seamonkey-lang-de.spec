@@ -4,7 +4,7 @@
 Summary:	German resources for SeaMonkey
 Summary(pl.UTF-8):	Niemieckie pliki językowe dla SeaMonkeya
 Name:		seamonkey-lang-%{_lang}
-Version:	1.1
+Version:	1.1.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
