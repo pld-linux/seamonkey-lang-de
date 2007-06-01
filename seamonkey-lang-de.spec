@@ -4,14 +4,14 @@
 Summary:	German resources for SeaMonkey
 Summary(pl.UTF-8):	Niemieckie pliki językowe dla SeaMonkeya
 Name:		seamonkey-lang-%{_lang}
-Version:	1.1.1
+Version:	1.1.2
 Release:	1
 License:	GPL
 Group:		X11/Applications/Networking
 Source0:	http://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/%{version}/contrib-localized/seamonkey-%{version}.%{_lare}.langpack.xpi
-# Source0-md5:	4f5f5dea2bfe18e84a80657152e1ef20
+# Source0-md5:	83be2a14428b2491c069894c8ba3d31f
 Source1:	http://www.mozilla-enigmail.org/downloads/lang/0.9x/enigmail-%{_lang}-0.9x.xpi
-# Source1-md5:	a6d521392385d55d9de6dbe093def72c
+# Source1-md5:	7b363f97e6873f44c835735a7b02620f
 Source2:	gen-installed-chrome.sh
 URL:		http://www.mozilla.org/projects/seamonkey/
 BuildRequires:	unzip
