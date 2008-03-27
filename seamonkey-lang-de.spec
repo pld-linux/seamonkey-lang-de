@@ -13,7 +13,7 @@ Source0:	http://releases.mozilla.org/pub/mozilla.org/seamonkey/releases/%{versio
 Source1:	http://www.mozilla-enigmail.org/download/release/0.95/enigmail-de-0.95.xpi
 # Source1-md5:	7b363f97e6873f44c835735a7b02620f
 Source2:	gen-installed-chrome.sh
-URL:		http://www.mozilla.org/projects/seamonkey/
+URL:		http://www.seamonkey-project.org/
 BuildRequires:	unzip
 Requires(post,postun):	seamonkey >= %{version}
 Requires(post,postun):	textutils
